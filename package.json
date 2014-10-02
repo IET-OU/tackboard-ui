@@ -1,0 +1,29 @@
+{
+	"name": "tackboard", 
+	"version": "0.0.1", 
+	"private": true, 
+	"author": "Enrico Daga - enrico.daga@open.ac.uk",
+	"dependencies": {
+      "requirejs": "2.1.x", 
+	  "connect": "2.7.0",
+	  "underscore": "1.5.x",
+	  "backbone": "1.1.x",
+	  "jquery": "1.11.x"
+    }, 
+	"devDependencies": {
+    	"mocha": "latest", 
+		"chai":	"latest", 
+    	"grunt": "0.x.x",
+        "grunt-cli": "0.x.x",
+    	"grunt-contrib-less": "0.9.x",
+    	"grunt-contrib-clean": "0.5.x",
+    	"grunt-contrib-connect": "0.4.x",
+    	"grunt-contrib-copy": "0.4.x",
+    	"grunt-contrib-uglify": "0.2.x",
+    	"grunt-contrib-watch": "0.5.x",
+		"grunt-connect-rewrite": "0.2.x"
+  }, 
+  "engine": "node >= 0.10",
+  "scripts": {
+  }
+}

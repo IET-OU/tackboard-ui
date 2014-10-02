@@ -1,0 +1,32 @@
+@typetopic-width: 300px;
+
+#typetopic {
+		background-color: #ffffff;
+	input {
+		width: @typetopic-width;
+	
+	}
+	input.tt-hint{
+		/* We don't want the hint to overlay the input */
+		display:none;
+	}
+	span.tt-dropdown-menu * {
+	/*	padding: 0px;
+		margin: 0px;
+	*/}
+	
+	.tt-suggestions {
+		border: 1px solid @iron;
+		background-color: #fff;
+		width: @typetopic-width;
+
+		.tt-suggestion {
+			color: @iron;
+			overflow: hidden;
+			padding: @padding;
+		}
+		.tt-suggestion:hover {
+			background-color: @ironLight;
+		}
+	}
+}

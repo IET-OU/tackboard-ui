@@ -1,0 +1,161 @@
+@black:			hsl(0,0,0);
+ 
+// WHITE Variants -
+@white:        #FDFFE6;
+@whiteLight:   hsl(hue(@white), 100%, 100%);
+@whiteFaded:   hsl(hue(@white), 99%, 100%);
+@whiteDark:    hsl(hue(@white), 40%, 90%);
+ 
+// GREEN Variants
+@greenDark:     #1B4425; //#D1DB65; /*spin((@white), 180);*/
+@green:     	hsl(hue(@greenDark), 60%, 40%);
+@greenLight:    hsl(hue(@greenDark), 100%, 90%);
+@greenFaded:    hsl(hue(@greenDark), 60%, 75%);
+ 
+// ORANGE Variants
+@orange:         #FFAA33; /*spin((@white), 70);*/
+@orangeLight:    hsl(hue(@orange), 100%, 70%);
+@orangeDark:     hsl(hue(@orange), 60%, 40%);
+@orangeFaded:    hsl(hue(@orange), 90%, 70%);
+
+// WATER
+@water:			#A7DBD8;
+@waterLight:    hsl(hue(@water), 100%, 70%);
+@waterDark:     hsl(hue(@water), 60%, 40%);
+@waterFaded:    hsl(hue(@water), 90%, 70%);
+
+// IRON
+@iron:			#3B4D4C;
+@ironLight:     hsl(hue(@iron), 20%, 90%);
+@ironDark:      hsl(hue(@iron), 70%, 10%);
+@ironFaded:     hsl(hue(@iron), 20%, 50%);
+
+// RED
+@red:			#B50128;
+@redLight:     hsl(hue(@red), 20%, 90%);
+@redDark:      hsl(hue(@red), 70%, 10%);
+@redFaded:     hsl(hue(@red), 20%, 50%);
+
+// GOLD
+@gold:			#D4A017;
+@goldLight:     hsl(hue(@gold), 20%, 90%);
+@goldDark:      hsl(hue(@gold), 70%, 30%);
+@goldFaded:     hsl(hue(@gold), 20%, 70%);
+
+// General padding
+@padding: 10px;
+@margin: @padding;
+
+// Font size
+
+
+#palette {
+	color: @black;
+	#white {
+		div {
+			height: 50px;
+		}
+		.regular{
+			background-color: @white;			
+		}
+		.light {
+			background-color: @whiteLight;
+		}
+		.dark {
+			background-color: @whiteDark;
+		}
+		.faded {
+			background-color: @whiteFaded;
+		}
+	
+	}
+	
+	#green {
+		div {
+			height: 50px;
+		}
+		.regular{
+			background-color: @green;
+		}
+		.light {
+			background-color: @greenLight;
+		}
+		.dark {
+			background-color: @greenDark;
+		}
+		.faded {
+			background-color: @greenFaded;
+		}
+	}
+	
+	#orange {
+		div {
+			height: 50px;
+		}
+		.regular{
+			background-color: @orange;
+		}
+		.light {
+			background-color: @orangeLight;
+		}
+		.dark {
+			background-color: @orangeDark;
+		}
+		.faded {
+			background-color: @orangeFaded;
+		}	
+	}	
+	
+	#water {
+		div {
+			height: 50px;
+		}
+		.regular{
+			background-color: @water;
+		}
+		.light {
+			background-color: @waterLight;
+		}
+		.dark {
+			background-color: @waterDark;
+		}
+		.faded {
+			background-color: @waterFaded;
+		}	
+	}	
+	#iron {
+		div {
+			height: 50px;
+		}
+		.regular{
+			background-color: @iron;
+		}
+		.light {
+			background-color: @ironLight;
+		}
+		.dark {
+			background-color: @ironDark;
+		}
+		.faded {
+			background-color: @ironFaded;
+		}	
+	}	
+	#red {
+		div {
+			height: 50px;
+		}
+		.regular{
+			background-color: @red;
+		}
+		.light {
+			background-color: @redLight;
+		}
+		.dark {
+			background-color: @redDark;
+		}
+		.faded {
+			background-color: @redFaded;
+		}	
+	}	
+}
+

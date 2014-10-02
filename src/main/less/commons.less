@@ -1,0 +1,60 @@
+* {
+	color: @iron;
+}
+.hand-written {
+	font-family: 'Marck Script', cursive; 
+}
+.tack,
+.tack:visited,
+.tack:active,
+.tack:hover,
+.more-like-this,
+.more-like-this:visited,
+.more-like-this:active,
+.more-like-this:hover,
+.less-like-this,
+.less-like-this:visited,
+.less-like-this:active,
+.less-like-this:hover,
+.remove-this,
+.remove-this:visited,
+.remove-this:active,
+.remove-this:hover,
+.remove,
+.remove:visited,
+.remove:active,
+.remove:hover {
+	cursor: pointer;
+	text-decoration: none;
+}
+.less-like-this {
+	color: @red;
+}
+.more-like-this {
+	color: @green;
+}
+.tack {
+/*	color: @waterDark; */
+	color: @gold; // gold!
+}
+.remove-this {
+	color: @iron;
+}
+.remove {
+	color: @iron;
+}
+.less-like-this:hover {
+	color: lighten(@red, 10%);
+}
+.remove-this:hover {
+	color: lighten(@iron, 30%);
+}
+.more-like-this:hover {
+	color: lighten(@green, 10%);
+}
+.tack:hover {
+	color: lighten(@gold, 10%);
+}
+.remove:hover {
+	color: lighten(@iron, 10%);
+}

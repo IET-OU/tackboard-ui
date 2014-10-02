@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Tackboard</title>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- /* font-family: 'Marck Script', cursive; */ -->
+  <link href='//fonts.googleapis.com/css?family=Marck+Script&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='css/styles.css' rel='stylesheet' type='text/css'>
+  
+  <script type="text/template" id="welcome-template">
+  <div class="jumbotron">
+    <h1 class="hand-written">Tackboard<small>beta</small></h1>
+   <% if(name!='anonym' && name!='') { %>
+    <p>Welcome <%= name %></p>
+	<% if( typeof boards !== 'undefined' && boards.length > 0 ) {
+		var i = 0;
+		 %>
+		 <p>You can review one of your boards:</p> 
+		 <div class="row">
+		 <% _.each(boards, function(bd) { if (i==3) {%><br/><% i = 0; }else{i++;}%>
+		          <a class="btn btn-primary btn-md" href="#<%= bd.signature %>/edit"><%= bd.label %></a>
+		<% }); %>
+		</div>
+	    <p>or</p> <p><a class="btn btn-primary btn-lg start-to-tack" role="button">create a new board </a></p>
+	<% } else { %>
+		<p><a class="btn btn-primary btn-lg start-to-tack" role="button">Start to tack</a></p>
+	<% } %>
+   <% } else { %>
+	<p>We are sorry, access is restricted.</p>
+   <% } %>
+  </div>
+  </script>
+  
+  <script type="text/template" id="badge-template">
+	<span class="hand-written">Tackboard</span>
+  </script>
+  
+  <script type="text/template" id="type-topic-template">
+	<input type="text" placeholder="Interested into..." class="form-control"/>
+  </script>
+  
+  <script type="text/template" id="board-template">
+  	<h1><label class="hand-written" data-field-name="label" contenteditable="<% print ( ! readonly ) ? 'true' : 'false' ; %>"><%= label %></label> <a class="save"><i class="fa fa-save"></i></a>
+<br/><small><a href="//data.open.ac.uk/viewboard/<%=id %>" target="_view">http://data.open.ac.uk/viewboard/<%=id %></a>
+	<% if(readonly==false) { %>
+		<a><i class="fa fa-trash-o delete"></i></a></small>
+ 	<% } %>
+	</h1>
+  </script>
+  
+  <script type="text/template" id="user-template">
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= name %>  <b class="caret"></b></a>
+		<ul class="dropdown-menu">
+		<% if( typeof boards !== 'undefined' && boards.length > 0 ) {
+			 %>
+			 <li role="presentation" class="dropdown-header">Boards:</li>
+			 <% _.each(boards, function(bd) { %>
+			         <li><a href="#<%= bd.signature %>/edit"><%= bd.label %></a></li>
+			<% }); %>
+		<% } %>
+				<li class="divider"></li>
+				<li><a href="<%= logoffurl %>">Sign out</a></li>
+	          </ul>
+	</li>
+  </script>
+  
+  <script type="text/template" id="sticker-template">
+<div class="item <%= cssClass %>">
+	<div class="top">
+		<div class="type"><i class="fa fa-file-text"></i> <%= type %></div>
+		<div class="actions">
+			<a class="fa fa-times remove-this" data-item-uri="<% uri %>" title="Remove this"></a>
+			<a class="fa fa-thumbs-up more-like-this" data-item-uri="<% uri %>" title="More like this"></a> 
+			<a class="fa fa-thumb-tack tack" data-item-uri="<% uri %>" title="Tack it!"></a>
+<!--			<a class="fa fa-thumbs-down less-like-this" data-item-uri="<% uri %>" title="Not like this"></a> -->
+		</div>
+	</div>
+	<div class="title"><a href="<%= link %>" target="_blank"><%= title %></a></div>
+	<div class="item-content">
+	<% if( depiction != '') { %>
+		<div class="depiction"><img src=" <%= depiction %>"/></div>
+	<% } %>
+	<!--
+	<div class="explanation">
+	<% if( typeof topics !== 'undefined' && topics.length > 0 ) { %>
+		<span class="topic"><%= topics.join('</span>, <span class="topic">') %></span>
+	<% } %>
+	</div> -->
+	<div class="description"><%= description %></div>
+	</div>
+</div>
+  </script>
+</head>
+<body>
+		<header>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#" id="badge"></a>
+		    </div>
+		    
+		    <div class="navbar-collapse collapse">
+		    <ul  class="nav navbar-nav navbar-right" id="user"></ul>
+		    </div>
+		  </div><!-- /.container-fluid -->
+		</nav>
+		
+		<div id="messages"></div>
+		</header>
+
+		<div id="content" class="container container-fluid">
+			<div id="page-welcome"><div id="welcome"></div></div>
+			<div id="page-board">
+				<div id="board" class=""></div>
+				<div id="tackboard" class="row"></div>
+				<div id="discovery" class="row" >
+					<h2 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hand-written">Discovery</h2>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="typetopic"></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<footer id="footer">
+			<!-- credits and bla bla bla -->
+			<p class="hand-written">Tackboard</p>
+			 <p>Powered by <a target="_blank" href="http://discou.info">DiscOU</a> and <a target="_blank" href="http://data.open.ac.uk">data.open.ac.uk</a>.</p>
+			 <p>Developed at the <a href="http://kmi.open.ac.uk" target="_blank">Knowledge Media Institute</a> (KMi) - The Open University</p>
+			 <p>***</p>
+			 <p>Font Awesome by Dave Gandy - <a target="_blank" href="http://fontawesome.io">http://fontawesome.io</a>.</p>
+		</footer>
+
+    <script type="text/javascript" src="js/lib/jquery.js"></script>
+	
+    <script type="text/javascript" src="js/lib/require.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+ </body>
+</html>

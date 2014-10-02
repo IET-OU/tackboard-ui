@@ -1,0 +1,113 @@
+#content {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by it's height */
+	margin: 0px auto -190px;
+	#welcome {
+		display: none;
+		.jumbotron {
+			text-align: center;
+			margin: 50px @margin @margin;
+			padding: @padding;
+			background-color: @whiteDark;
+		}
+	}
+	
+	#board {
+		h1 {
+			text-align: center;
+			padding: @padding;
+			.save {
+				font-size: 0.5em;
+				display: none;
+				i {
+					color: @orangeDark;
+				}
+				cursor: pointer;
+			}
+			small {
+				font-size: 0.5em;
+				a {
+					font-weight: normal;
+					line-height: 1;
+					color: #999999;
+				}
+				a {
+					i.delete {
+						display: none;
+						cursor: pointer;
+						color: @orangeDark;
+					}
+					i.alarm {
+						color: @red;
+						font-size: 1.2em;
+					}
+				}
+				
+			}
+		}
+	}
+	
+	#tackboard {
+		background-color: @ironFaded;
+		padding-top: @padding;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+
+/*		margin-top: 50px;*/
+		
+		.box-shadow(0px 0px 2px #000);
+		background: url(../img/Tackboard.jpg); 
+		background-repeat: repeat;
+		min-height: 400px;
+	}
+	
+	#discovery {
+		display: none;
+		min-height: 200px;
+		@typetopic-width: 300px;
+		h2 {
+			text-align: center;
+		}
+		#typetopic {
+			text-align: center;
+			#typetopic * {
+				text-align: left;
+			}
+			margin: @margin;
+			
+			display: inline-block;
+			input {
+				width: @typetopic-width;
+			}
+			input.tt-hint{
+				/* We don't want the hint to overlay the input */
+				display:none;
+			}
+			span.tt-dropdown-menu * {
+			/*	padding: 0px;
+				margin: 0px;
+			*/}
+	
+			.tt-suggestions {
+				border: 1px solid @iron;
+				background-color: #fff;
+				width: @typetopic-width;
+
+				.tt-suggestion {
+					color: @iron;
+					overflow: hidden;
+					padding: @padding;
+				}
+				.tt-suggestion:hover {
+					background-color: @ironLight;
+				}
+			}
+		}
+	}
+	#page-board{
+		margin-bottom: 200px; // to not overlap the footer
+		display: none;
+	}
+}

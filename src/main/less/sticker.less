@@ -1,0 +1,98 @@
+.sticker {
+	
+	height: 430px;
+	background-color: transparent;
+	.item {
+		color: @iron;
+		display: inline-block;
+/*	width: 300px; */
+		// margin: @margin; 
+		margin-top: @margin;
+		margin-bottom: @margin;
+		overflow: hidden;
+		// border: 1px solid @whiteDark;
+		background-color: @whiteLight;
+		/* IE10 Consumer Preview */ 
+		background-image: -ms-linear-gradient(bottom, @whiteDark 0%, @whiteLight  100%);
+		/* Mozilla Firefox */ 
+		background-image: -moz-linear-gradient(bottom, @whiteDark 0%, @whiteLight 100%);
+		/* Opera */ 
+		background-image: -o-linear-gradient(bottom, @whiteDark 0%, @whiteLight 100%);
+		/* Webkit (Safari/Chrome 10) */ 
+		background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @whiteDark), color-stop(1, @whiteLight));
+		/* Webkit (Chrome 11+) */ 
+		background-image: -webkit-linear-gradient(bottom, @whiteDark 0%, @whiteLight 100%);
+		/* W3C Markup, IE10 Release Preview */ 
+		background-image: linear-gradient(to top, @whiteDark 0%, @whiteLight 100%);
+
+		div {
+			display: block;
+		}
+		.top {
+			padding: 0;
+			margin: @margin;
+			.type {
+				margin: 0px;
+				/*height: 10%;*/
+				width: 60%;
+				float: left;
+				font-size: @font-size-h4;
+			}
+			.actions {
+				margin: 0px;
+				width: 30%; 
+		/*		height: 7%;*/	
+				float: right;
+				text-align: right;
+				.more-like-this, .less-like-this, .remove-this, .tack {
+					font-size: @font-size-h5;
+	/*				padding: 5px; */
+					margin: 0px;
+					width: 20px; 
+				}
+				.remove-this{
+					margin-top: 3px ;
+				}
+			}
+		}
+		.explanation {
+			.hand-written ;
+			/*height: 10%;*/
+			font-size: 18px;
+		}
+		.title {
+			font-size: 20px;
+			margin: @margin;
+			margin-top: 40px;
+	/*		font-size: 2rem; */
+	/*		height: 10%; */
+		}
+		.item-content {
+			padding: @padding;
+			overflow: hidden;
+			overflow-y: auto;
+			height: 315px;
+			border-bottom: 10px solid transparent;
+			.description {
+			
+			}
+			.provenance {
+		
+			}
+			.depiction {
+				float:left;
+				img{
+					margin-right: 7px;
+					margin-bottom: 7px;
+					height: 150px;
+				}
+			}
+		}
+	}
+}
+
+.tacked .item {
+	background-image: none;
+	background-color: @white;
+	.box-shadow(0 0px 2px #000);
+}
